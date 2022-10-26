@@ -6,7 +6,7 @@ export default function Layout({children, title = '', description = ''}) {
   return (
     <>
         <Head>
-        <title>{`Carrito - ${title}`}</title>
+            <title>{title}</title>
             <meta name="description" content={description} />
         </Head>
         <Header></Header>

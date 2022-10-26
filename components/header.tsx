@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function header() {
   return (
-    <header className='bg-rose-900 py-20 bg-center bg-cover'>
+    <header className='bg-rose-900 py-12 bg-center bg-cover'>
         <div className='container'>
             <nav className='md:flex md:justify-between'>
                 <Link className='md:ml-12 text-white uppercase font-bold text-2xl' href={'/'}>
