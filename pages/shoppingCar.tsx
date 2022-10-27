@@ -41,7 +41,7 @@ export default function ShoppingCar({car, amountUpdate, productDelete}) {
                                     <p>SubTotal: $ <span className='font-bold'>{(product.price.amount * product.cantidad).toFixed(2)}</span></p>
                                 </div>
                                 <button 
-                                    className='absolute top-12 right-6 font-black cursor-pointer' 
+                                    className='absolute top-12 right-6 font-black cursor-pointer text-red-600' 
                                     type='button'
                                     onClick={() => productDelete(product.id)}
                                 >X</button>
