@@ -1,6 +1,7 @@
 {
   "products": [
     {
+      "id": 1,
       "title": "Amazing Grace",
       "price": {
         "currencyCode": "USD",
@@ -9,6 +10,7 @@
       "imageUrl": "https://cdn.shopify.com/s/files/1/0084/0617/1763/products/Roses_9_square.jpg"
     },
     {
+      "id": 2,
       "title": "Barcelona Orchid Duo",
       "price": {
         "currencyCode": "USD",
@@ -17,6 +19,7 @@
       "imageUrl": "https://cdn.shopify.com/s/files/1/0084/0617/1763/products/10_inch_Gianna_White-Salmon_Orchids.jpg"
     },
     {
+      "id": 3,
       "title": "Blue Orchid",
       "price": {
         "currencyCode": "USD",
@@ -25,6 +28,7 @@
       "imageUrl": "https://cdn.shopify.com/s/files/1/0084/0617/1763/products/BB794PBlueWatercolorOrchid_square.jpg"
     },
     {
+      "id": 4,
       "title": "Celebration",
       "price": {
         "currencyCode": "USD",
@@ -33,6 +37,7 @@
       "imageUrl": "https://cdn.shopify.com/s/files/1/0084/0617/1763/products/Celebration_Square.jpg"
     },
     {
+      "id": 5,
       "title": "Eternity Red",
       "price": {
         "currencyCode": "USD",
@@ -41,6 +46,7 @@
       "imageUrl": "https://cdn.shopify.com/s/files/1/0084/0617/1763/products/Freedomsquare.jpg"
     },
     {
+      "id": 6,
       "title": "Gardenia",
       "price": {
         "currencyCode": "USD",
@@ -49,6 +55,7 @@
       "imageUrl": "https://cdn.shopify.com/s/files/1/0084/0617/1763/products/Gardenia-DT0107Gsquare.jpg"
     },
     {
+      "id": 7,
       "title": "Honey Blush Premium",
       "price": {
         "currencyCode": "USD",
@@ -57,6 +64,7 @@
       "imageUrl": "https://cdn.shopify.com/s/files/1/0084/0617/1763/products/DoubleHoneyBlush_square.jpg"
     },
     {
+      "id": 8,
       "title": "Pastel Garden",
       "price": {
         "currencyCode": "USD",

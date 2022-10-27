@@ -1,11 +1,10 @@
 import Layout from '../components/layout'
 import Product from '../components/product'
 import data from '../products.json'
-import { v4 as uuid } from 'uuid';
 
 const products = data.products
 
-export default function Home() {
+export default function Home({addCar, amountUpdate}) {
   return (
     <>
       <Layout 
@@ -17,8 +16,10 @@ export default function Home() {
             <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-16'>
                 {products?.map(product => (
                     <Product
-                        key={uuid()}
+                        key={product.id}
                         product={product}
+                        addCar={addCar}
+                        amountUpdate={amountUpdate}
                     />
                 ))}
             </div>

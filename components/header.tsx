@@ -9,7 +9,7 @@ export default function header() {
                 <Link className='md:ml-12 text-white uppercase font-bold text-2xl' href={'/'}>
                     Products
                 </Link>
-                <Link href={'/shopping'}>
+                <Link href={'/shoppingCar'}>
                     <Image src="/img/carrito.png" width={30} height={25} alt='image shopping' />
 
                 </Link>
