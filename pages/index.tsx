@@ -4,7 +4,7 @@ import data from '../products.json'
 
 const products = data.products
 
-export default function Home({addCar, amountUpdate}) {
+export default function Home({car, addCar, amountUpdate, productDelete}) {
   return (
     <>
       <Layout 
@@ -20,6 +20,8 @@ export default function Home({addCar, amountUpdate}) {
                         product={product}
                         addCar={addCar}
                         amountUpdate={amountUpdate}
+                        productDelete={productDelete}
+                        car={car}
                     />
                 ))}
             </div>
