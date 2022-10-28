@@ -28,16 +28,16 @@ export default function Header() {
                 <Link className='ml-12 text-white uppercase font-bold text-2xl' href={'/'}>
                     Products
                 </Link>
-                    {router.pathname === '/' && 
-                        <div className='bg-yellow-500 text-center rounded-full text-white font-bold relative'>
-                        <span className='absolute top-2'>{amount}</span>
-                        </div>
-                    }
                 <Link className='mr-12' href={'/shoppingCar'}>
                     <Image src="/img/carrito.png" width={30} height={25} alt='image shopping' />
 
                 </Link>
             </nav>
+            {router.pathname === '/' && 
+                <div className='relative'>
+                    <span className='p-[0.3rem] bg-yellow-500 text-center rounded-full text-white font-bold absolute top-[-4.3rem] right-[3.3rem]'>{amount}</span>
+                </div>
+            }
         </div>
     </header>
   )
