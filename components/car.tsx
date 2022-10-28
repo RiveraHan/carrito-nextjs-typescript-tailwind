@@ -5,14 +5,7 @@ import useCar from '../hooks/useCar'
 
 export default function Car() {
 
-    const {car, amountUpdated, productDelete} = useCar()
-    
-    const [total, setTotal] = useState(0)
-
-    useEffect(() => {
-        const allTotal = car.reduce((t, product) => t + +product.price.amount * product.cantidad, 0 )
-        setTotal(allTotal)
-    }, [car])
+    const {amount, total, car, amountUpdated, productDelete} = useCar()
 
   return (
     <Layout
@@ -55,6 +48,7 @@ export default function Car() {
                 </div>
                 <aside className='bg-gray-50 p-12 rounded-2xl sticky top-12'>
                     <h3 className='font-black text-xl'>Resume request</h3>
+                    <p>Total Articles: <span className='font-bold'>$ {amount}</span></p>
                     <p>Total: <span className='font-bold'>$ {total.toFixed(2)}</span></p>
                 </aside>
             </div>

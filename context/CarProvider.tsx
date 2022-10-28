@@ -1,10 +1,25 @@
-import { useState, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 
 const CarContext = createContext()
 
 const CarProvider = ({children}) => {
 
     const [car, setCar] = useState([]) 
+
+    const [amount, setAmount] = useState(0)
+
+    const [total, setTotal] = useState(0)
+
+    useEffect(() => {
+        if(car && car.length > 0) {
+            
+            const allTotalProduct = car.reduce((total, product) => total + product.cantidad, 0 )
+            setAmount(allTotalProduct)
+
+        }
+        const allTotal = car.reduce((t, product) => t + +product.price.amount * product.cantidad, 0 )
+        setTotal(allTotal)
+    }, [car])
 
     const addCar = product => {
         // Comprobar si la guitarra ya esta en el carrito...
@@ -29,6 +44,10 @@ const CarProvider = ({children}) => {
     const productDelete = id => {
         const carUpdaded = car.filter( product => product.id != id)
         setCar(carUpdaded)
+        console.log(carUpdaded, 'desde productDelete')
+        if(carUpdaded.length < 1) {
+            setAmount(0)
+        }
         window.localStorage.setItem('car', JSON.stringify( car ));
     }
     
@@ -47,6 +66,8 @@ const CarProvider = ({children}) => {
         <CarContext.Provider
             value={{
                 car,
+                amount,
+                total,
                 addCar,
                 productDelete,
                 amountUpdated

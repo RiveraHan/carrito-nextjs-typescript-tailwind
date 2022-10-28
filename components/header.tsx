@@ -9,18 +9,9 @@ export default function Header() {
 
     const router = useRouter()
 
-    const { car } = useCar()
+    const { amount } = useCar()
 
-    const [amount, setAmount] = useState(0)
-    useEffect(() => {
-        if(car && car.length > 0) {
-            
-            const allTotalProduct = car.reduce((total, product) => total + product.cantidad, 0 )
-            console.log(allTotalProduct,'cantidad desde carrito')
-            setAmount(allTotalProduct)
-        }
-    }, [car])
-    console.log(car)
+    
   return (
     <header className='bg-rose-900 py-12 bg-center'>
         <div className='container'>
@@ -33,10 +24,11 @@ export default function Header() {
 
                 </Link>
             </nav>
-            {router.pathname === '/' && 
+            {router.pathname === '/' && amount > 0 ?
                 <div className='relative'>
-                    <span className='p-[0.3rem] bg-yellow-500 text-center rounded-full text-white font-bold absolute top-[-4.3rem] right-[3.3rem]'>{amount}</span>
-                </div>
+                    <div className='pt-1 pb-1 pl-1 pr-1 bg-yellow-500 text-center rounded-full text-white font-bold absolute top-[-4.3rem] right-[3.3rem]'>{amount}</div>
+                </div> 
+                : null
             }
         </div>
     </header>
