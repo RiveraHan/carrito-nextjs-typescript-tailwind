@@ -30,11 +30,11 @@ export default function Product({product}) {
     }
   
     return (
-      <div className='grid grid-cols-[2fr_3fr] gap-4 content-center max-w-6xl mt-0 mb-0 mr-auto ml-auto'>
+      <div className='grid grid-cols-[2fr_3fr] gap-4 content-center max-w-6xl mt-0 mb-0 mr-auto ml-auto border border-gray-200 shadow-md'>
           <Image className="object-cover h-48 w-96" src={imageUrl} width={600} height={400} alt={`Imagen Product ${title}`} />
   
           <div className='p-4'>
-              <h3 className='text-xl uppercase'>{title}</h3>
+              <h3 className='text-xl uppercase font-light'>{title}</h3>
               <p className='text-xl m-0 font-black'>${price.amount}</p>
               {added ? <input type={'button'} className='mt-8 bg-gray-700 text-white p-1 text-center uppercase text-base font-bold hover:bg-gray-800 w-full cursor-not-allowed'
                   value={'Aggregate'}

@@ -22,7 +22,7 @@ export default function Header() {
     }, [car])
     console.log(car)
   return (
-    <header className='bg-rose-900 py-12 bg-center bg-cover'>
+    <header className='bg-rose-900 py-12 bg-center'>
         <div className='container'>
             <nav className='flex justify-between'>
                 <Link className='ml-12 text-white uppercase font-bold text-2xl' href={'/'}>

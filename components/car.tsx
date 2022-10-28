@@ -24,7 +24,7 @@ export default function Car() {
                     <h2 className='font-black text-2xl'>Articles</h2>
                     {car.length === 0 ? 'Car empty' : (
                         car.map(product => (
-                            <div key={product.id} className='grid grid-cols-[1fr_3fr] gap-16 items-center py-12 px-0 relative'>
+                            <div key={product.id} className='grid grid-cols-[1fr_3fr] gap-16 items-center py-12 px-0 border-b border-gray-200  relative'>
                                 <div>
                                     <Image width={250} height={480} src={product.imageUrl} alt={product.title}></Image>
                                 </div>
