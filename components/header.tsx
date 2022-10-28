@@ -2,14 +2,20 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
-export default function Header({car}) {
+export default function Header() {
 
-    // const [amount, setAmount] = useState(0)
+    const [amount, setAmount] = useState(0)
     // useEffect(() => {
-    //     const allTotal = car.reduce((t, product) => t =+ product.cantidad, 0 )
-    //     console.log(allTotal,'cantidad desde carrito')
-    //     setAmount(allTotal)
+    //     if(car && car.length > 0) {
+            
+    //         let contador;
+    //         const allTotal = car.reduce((t, product) => t + product.cantidad, 0 )
+    //         // car.map(product => console.log(product.cantidad))
+    //         console.log(allTotal,'cantidad desde carrito')
+    //         setAmount(allTotal)
+    //     }
     // }, [car])
+    // console.log(car)
   return (
     <header className='bg-rose-900 py-12 bg-center bg-cover'>
         <div className='container'>
