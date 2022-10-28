@@ -22,7 +22,7 @@ const CarProvider = ({children}) => {
     }, [car])
 
     const addCar = product => {
-        // Comprobar si la guitarra ya esta en el carrito...
+        // Comprobar si el producto ya esta en el carrito...
         if(car.some( productState =>  productState.id === product.id )) {
             // Iterar para actualizar la cantidad
             const carUpdaded = car.map( productState => {
@@ -37,7 +37,6 @@ const CarProvider = ({children}) => {
         } else {
             // En caso de que el articulo no exista, es nuevo y se agrega
             setCar([...car, product]);
-            localStorage.setItem('car', JSON.stringify( car ));
         }
     }
     
@@ -48,7 +47,6 @@ const CarProvider = ({children}) => {
         if(carUpdaded.length < 1) {
             setAmount(0)
         }
-        window.localStorage.setItem('car', JSON.stringify( car ));
     }
     
     const amountUpdated = product => {
@@ -59,7 +57,6 @@ const CarProvider = ({children}) => {
         return productState
       })
       setCar(carUpdaded)
-      window.localStorage.setItem('car', JSON.stringify( car ));
     }
 
     return(
