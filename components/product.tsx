@@ -15,7 +15,6 @@ export default function Product({product}) {
 
             setAdded(true)
         }
-        console.log(ad)
     }, [car])
 
     const handleAdd = () => {
@@ -31,7 +30,7 @@ export default function Product({product}) {
   
     return (
       <div className='grid grid-cols-[2fr_3fr] gap-4 content-center max-w-6xl mt-0 mb-0 mr-auto ml-auto border border-gray-200 shadow-md'>
-          <Image className="object-cover h-48 w-96" src={imageUrl} width={600} height={400} alt={`Imagen Product ${title}`} />
+          <Image className="object-cover h-48 w-96" src={imageUrl} width={300} height={200} alt={`Imagen Product ${title}`} />
   
           <div className='p-4'>
               <h3 className='text-xl uppercase font-light'>{title}</h3>

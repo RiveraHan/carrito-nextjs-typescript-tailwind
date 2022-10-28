@@ -12,20 +12,20 @@ export default function Header() {
 
     
   return (
-    <header className='bg-rose-900 py-12 bg-center'>
-        <div className='container relative'>
+    <header className=' bg-rose-900 py-10 bg-center'>
+        <div className='container mr-auto ml-auto w-[90%] relative'>
             <nav className='flex justify-between'>
-                <Link className='ml-12 text-white uppercase font-bold text-2xl' href={'/'}>
+                <Link className='text-white uppercase font-bold text-3xl' href={'/'}>
                     Products
                 </Link>
-                <Link className='mr-12' href={'/shoppingCar'}>
+                <Link href={'/shoppingCar'}>
                     <Image src="/img/carrito.png" width={40} height={55} alt='image shopping' />
 
                 </Link>
             </nav>
             {router.pathname === '/' && amount > 0 ?
                 <div>
-                    <p className=' p-[2px] bg-yellow-500 rounded-full text-xl text-white font-bold absolute top-[-1rem] right-[2.5rem]'>{amount}</p>
+                    <p className=' p-[1px] bg-yellow-500 rounded-full text-xl text-white font-bold absolute top-[-1rem] right-0'>{amount}</p>
                 </div> 
                 : null
             }
