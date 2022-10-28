@@ -8,13 +8,11 @@ const products = data.products
 export default function Home() {
   return (
     <>
-      <CarProvider>
-
         <Layout 
           title={'Inicio'}
           description={'Shopping'}
           >  
-          <main className='container m-12 mr-auto ml-auto w-m w-11/12'>
+          <main className='container mr-auto ml-auto w-m w-11/12'>
               <h1 className='font-black text-4xl text-center mt-20 mb-20'>Our Collection</h1>
               <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-16'>
                   {products?.map(product => (
@@ -27,7 +25,6 @@ export default function Home() {
           </main>
 
         </Layout>
-      </CarProvider>
     </>
   )
 }
