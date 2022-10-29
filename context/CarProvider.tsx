@@ -1,58 +1,57 @@
 import { useState, useEffect, createContext } from "react";
+import { ReactNode } from "react";
+import { ProductType } from '../interfaces'
 
-const CarContext = createContext()
+type Props = {
+    children?: ReactNode
+  }
 
-const CarProvider = ({children}) => {
+const CarContext = createContext({})
 
-    const [car, setCar] = useState([]) 
+const CarProvider = ({children}: Props) => {
 
-    const [amount, setAmount] = useState(0)
+    const [car, setCar] = useState<ProductType[]>([]) 
 
-    const [total, setTotal] = useState(0)
+    const [amount, setAmount] = useState<number>(0)
+
+    const [total, setTotal] = useState<number>(0)
 
     useEffect(() => {
         if(car && car.length > 0) {
             
-            const allTotalProduct = car.reduce((total, product) => total + product.cantidad, 0 )
+            const allTotalProduct: number = car.reduce((total: number, product: ProductType) => total + product.cantidad, 0 )
             setAmount(allTotalProduct)
 
         }
-        const allTotal = car.reduce((t, product) => t + +product.price.amount * product.cantidad, 0 )
+        const allTotal: number = car.reduce((total: number, product: ProductType) => total + +product.price.amount * product.cantidad, 0 )
         setTotal(allTotal)
     }, [car])
 
-    const addCar = product => {
+    const addCar = (product: ProductType) => {
         // Comprobar si el producto ya esta en el carrito...
-        if(car.some( productState =>  productState.id === product.id )) {
+        if(car.some( (productState: ProductType) =>  productState.id === product.id )) {
             // Iterar para actualizar la cantidad
-            const carUpdaded = car.map( productState => {
-                if( productState.id === car.id ) {
-                  productState.cantidad = car.cantidad;
-                } 
-                return productState;
-            });
+            const carUpdaded: ProductType[] = car.map( (productState: ProductType) =>  productState);
             // Se asigna al array
             setCar([...carUpdaded]);
-            localStorage.setItem('car', JSON.stringify( car ));
         } else {
             // En caso de que el articulo no exista, es nuevo y se agrega
             setCar([...car, product]);
         }
     }
     
-    const productDelete = id => {
-        const carUpdaded = car.filter( product => product.id != id)
+    const productDelete = (id: number) => {
+        const carUpdaded = car.filter( (product: ProductType) => product.id != id)
         setCar(carUpdaded)
-        console.log(carUpdaded, 'desde productDelete')
         if(carUpdaded.length < 1) {
             setAmount(0)
         }
     }
     
-    const amountUpdated = product => {
-      const carUpdaded = car.map( productState => {
+    const amountUpdated = (product: ProductType) => {
+      const carUpdaded: ProductType[] = car.map( (productState: ProductType) => {
         if(productState.id === product.id ) {
-          productState.cantidad = parseInt( product.cantidad )
+          productState.cantidad = product.cantidad
         } 
         return productState
       })

@@ -1,7 +1,7 @@
 import Layout from '../components/layout'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
 import useCar from '../hooks/useCar'
+import { ProductType } from '../interfaces'
 
 export default function Car() {
 
@@ -16,7 +16,7 @@ export default function Car() {
                 <div className='pt-12 pb-12 pl-0 pr-0'>
                     <h2 className='font-black text-2xl'>Articles</h2>
                     {car.length === 0 ? 'Car empty' : (
-                        car.map(product => (
+                        car.map((product: ProductType) => (
                             <div key={product.id} className='grid grid-cols-[1fr_3fr] gap-16 items-center py-12 px-0 border-b border-gray-200  relative'>
                                 <div>
                                     <Image width={250} height={480} src={product.imageUrl} alt={product.title}></Image>

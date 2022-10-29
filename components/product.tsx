@@ -1,24 +1,31 @@
 import Image from "next/image"
 import { useEffect, useState } from 'react'
 import useCar from "../hooks/useCar"
+import { ProductType } from "../interfaces"
 
-export default function Product({product}) {
+type Props = {
+    product: ProductType
+}
+
+export default function Product({product}: Props) {
 
     const { car, addCar } = useCar()
 
     const [added, setAdded] = useState(false)
 
     const { id, title, price, imageUrl } = product
+
     useEffect(() =>{
-        const ad = car.filter(productCar => productCar.id === id)
+        const ad: ProductType[] = car.filter((productCar: ProductType) => productCar.id === id)
         if(ad.length > 0) {
 
             setAdded(true)
         }
-    }, [car])
+    }, [car, id])
 
     const handleAdd = () => {
-        const objectProduct = {
+
+        const objectProduct: ProductType = {
             id,
             title,
             cantidad: 1,
