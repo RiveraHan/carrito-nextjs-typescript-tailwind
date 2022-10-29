@@ -51,7 +51,7 @@ type Props = {
     
     const amountUpdated = (product: ProductType) => {
       const carUpdaded: ProductType[] = car.map( (productState: ProductType) => {
-        if(productState.id === product.id ) {
+        if(productState.id === product.id && product.cantidad >= 1 ) {
           productState.cantidad = product.cantidad
         } 
         return productState
