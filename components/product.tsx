@@ -1,10 +1,10 @@
 import Image from "next/image"
 import { useEffect, useState } from 'react'
 import useCar from "../hooks/useCar"
-import { ProductType } from "../interfaces"
+import { IProduct, ICarProduct } from "../interfaces"
 
 type Props = {
-    product: ProductType
+    product: IProduct
 }
 
 export default function Product({product}: Props) {
@@ -16,7 +16,7 @@ export default function Product({product}: Props) {
     const { id, title, price, imageUrl } = product
 
     useEffect(() =>{
-        const ad: ProductType[] = car.filter((productCar: ProductType) => productCar.id === id)
+        const ad: IProduct[] = car.filter((productCar: IProduct) => productCar.id === id)
         if(ad.length > 0) {
 
             setAdded(true)
@@ -25,7 +25,7 @@ export default function Product({product}: Props) {
 
     const handleAdd = () => {
 
-        const objectProduct: ProductType = {
+        const objectProduct: ICarProduct = {
             id,
             title,
             cantidad: 1,

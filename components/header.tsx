@@ -2,18 +2,17 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import useCar from '../hooks/useCar'
-useCar
 
 export default function Header() {
 
     const router = useRouter()
 
-    const { amount } = useCar()
+    const { getAmount } = useCar()
 
     
   return (
-    <header className=' bg-rose-900 py-10 bg-center'>
-        <div className='container mr-auto ml-auto w-[90%] relative'>
+    <header className=' bg-rose-900 py-8 bg-center'>
+        <div className='container mr-auto ml-auto w-[90%] content-center relative'>
             <nav className='flex justify-between'>
                 <Link className='text-white uppercase font-bold text-3xl' href={'/'}>
                     Products
@@ -23,9 +22,9 @@ export default function Header() {
 
                 </Link>
             </nav>
-            {router.pathname === '/' && amount > 0 ?
-                <div>
-                    <p className=' p-[1px] bg-yellow-500 rounded-full text-xl text-white font-bold absolute top-[-1rem] right-0'>{amount}</p>
+            {router.pathname === '/' && getAmount() > 0 ?
+                <div className='inline-block'>
+                    <div className='pl-2 pr-2 bg-yellow-500 rounded-full text-[1rem] text-white font-black top-[-1rem] right-[-10px] absolute'>{getAmount()}</div>
                 </div> 
                 : null
             }

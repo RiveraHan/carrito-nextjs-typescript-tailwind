@@ -1,38 +1,38 @@
 import { useState, useEffect, createContext } from "react";
 import { ReactNode } from "react";
-import { ProductType } from '../interfaces'
+import { ICarContextProps, ICarProduct } from '../interfaces'
 
 type Props = {
     children?: ReactNode
   }
 
-  const CarContext = createContext({})
+  const CarContext = createContext<ICarContextProps>({} as ICarContextProps)
 
   const CarProvider = ({children}: Props) => {
 
       
-    const [car, setCar] = useState<ProductType[]>([]) 
+    const [car, setCar] = useState<ICarProduct[]>([]) 
 
-    const [amount, setAmount] = useState<number>(0)
-
-    const [total, setTotal] = useState<number>(0)
-
+    
     useEffect(() => {
         if(car && car.length > 0) {
+            getAmount()
             
-            const allTotalProduct: number = car.reduce((total: number, product: ProductType) => total + product.cantidad, 0 )
-            setAmount(allTotalProduct)
-
+            getTotal()
         }
-        const allTotal: number = car.reduce((total: number, product: ProductType) => total + +product.price.amount * product.cantidad, 0 )
-        setTotal(allTotal)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [car])
+    
+    const getAmount = (): number => car.reduce((total: number, product: ICarProduct) => total + product.cantidad, 0 )
+    
+    const getTotal = (): number => car.reduce((total: number, product: ICarProduct) => total + +product.price.amount * product.cantidad, 0 )
+    
 
-    const addCar = (product: ProductType) => {
+    const addCar = (product: ICarProduct) => {
         // Comprobar si el producto ya esta en el carrito...
-        if(car.some( (productState: ProductType) =>  productState.id === product.id )) {
+        if(car.some( (productState: ICarProduct) =>  productState.id === product.id )) {
             // Iterar para actualizar la cantidad
-            const carUpdaded: ProductType[] = car.map( (productState: ProductType) =>  productState);
+            const carUpdaded: ICarProduct[] = car.map( (productState: ICarProduct) =>  productState);
             // Se asigna al array
             setCar([...carUpdaded]);
         } else {
@@ -42,15 +42,15 @@ type Props = {
     }
     
     const productDelete = (id: number) => {
-        const carUpdaded = car.filter( (product: ProductType) => product.id != id)
+        const carUpdaded = car.filter( (product: ICarProduct) => product.id != id)
         setCar(carUpdaded)
-        if(carUpdaded.length < 1) {
-            setAmount(0)
-        }
+        // if(carUpdaded.length < 1) {
+        //     setAmount(0)
+        // }
     }
     
-    const amountUpdated = (product: ProductType) => {
-      const carUpdaded: ProductType[] = car.map( (productState: ProductType) => {
+    const amountUpdated = (product: ICarProduct) => {
+      const carUpdaded: ICarProduct[] = car.map( (productState: ICarProduct) => {
         if(productState.id === product.id && product.cantidad >= 1 ) {
           productState.cantidad = product.cantidad
         } 
@@ -63,8 +63,8 @@ type Props = {
         <CarContext.Provider
             value={{
                 car,
-                amount,
-                total,
+                getAmount,
+                getTotal,
                 addCar,
                 productDelete,
                 amountUpdated
