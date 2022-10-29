@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { ContextType, useContext } from 'react'
 import CarContext from '../context/CarProvider'
 
 const useCar = () => {

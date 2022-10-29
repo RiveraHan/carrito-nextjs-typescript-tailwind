@@ -6,10 +6,11 @@ type Props = {
     children?: ReactNode
   }
 
-const CarContext = createContext({})
+  const CarContext = createContext({})
 
-const CarProvider = ({children}: Props) => {
+  const CarProvider = ({children}: Props) => {
 
+      
     const [car, setCar] = useState<ProductType[]>([]) 
 
     const [amount, setAmount] = useState<number>(0)
